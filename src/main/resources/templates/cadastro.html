@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>cadastro</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <link rel="icon" th:href="@{/image/imagem3.png}" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+  
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet"/>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-inverse navbar navbar-dark bg-light fixed-top"
+		>
+			<div class="container-fluid" >
+				<div class="navbar-header" style="width: 100%;">
+					
+					<div class="row">
+						<div class="col-2"   >
+					<a class="navbar-brand" href="/"><img src="image/imagem3.png"
+						style="width: 40%; min-width: 80px;"> </a> </div>
+						<div align="center" class="col-9" style="vertical-align: -60px;
+						"><h2 class="mt-4" style="font-weight: bolder;">App Diário de Treinamento</h2>
+
+					</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<br><br>
+	<div class="layout-main mt-3">	
+	
+		<aside >
+			<nav class="sidebar sidebar-open" style="width: 80%; height:100%;">
+				<ul class="nav nav-pills ">
+					<li class="nav-item" ><a class="nav-link " href="/" > <i
+							class="oi oi-home"></i> <span>Home</span>
+					</a></li>
+				</ul>
+
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active" >Sessão de Treinamento</span></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/cadastrar"> <i class="oi oi-plus"></i> <span>Cadastrar</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/sessoes"> <i class="oi oi-spreadsheet"></i>
+							<span>Consultar </span>
+					</a></li>
+				</ul>
+
+			</nav>
+		</aside>
+			
+	<section class="layout-content" style="margin-left: -60px;">
+	
+		<nav class="navbar navbar-expand-md bg-light ">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active mt-2 ml-3">
+						<i class="oi oi-caret-right"></i>
+						<span style="font-weight: bold; font-style: italic;">Cadastro de Sessão</span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	
+	
+	
+	
+	
+	
+	        <div class="container" id="cadastro">
+ 	        <div th:replace="alert"></div> 
+	            <form action="/salvar"  id="cadastrar">
+	            
+	            <div class="form-row">
+
+	             <!--   	 <div class="row"> -->
+	                <div class="form-group col-md-4">
+	                  
+	
+	                   <nav class="navbar navbar-light bg-light"> 
+	       
+	                                       <span >Data da sessão:</span> </div>
+	                              <div class="form-group col-md-4">
+	                                <input class="form-control mr-sm-2" type="date" aria-label="Search"
+	                                       name="dataInicial" id="dataInicial" /> </div>
+	         
+	              </nav> 
+	
+	                    </div>
+	                
+	
+	                <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="">Exercício 1</label>
+	                        <input type="text" class="form-control"  placeholder="Descrição:"
+	                               autofocus="autofocus" name="descricao0" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Carga:</label>
+	                        <input  class="form-control"  
+	                                name="carga0" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Repetições:</label>
+	                        <input type="text" class="form-control"
+	                               data-mask-reverse="true" name="repeticoes0" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Séries:</label>
+	                        <input type="text" class="form-control" 
+	                            name="series0" id="series"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                </div>
+	              
+	                    <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="">Exercício 2</label>
+	                        <input type="text" class="form-control"  placeholder="Descrição:"
+	                               autofocus="autofocus" name="descricao1" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Carga:</label>
+	                        <input  class="form-control" 
+	                               name="carga1" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Repetições:</label>
+	                        <input type="text" class="form-control"
+	                               data-mask-reverse="true" name="repeticoes1" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Séries:</label>
+	                        <input type="text" class="form-control" 
+	                               data-mask-reverse="true" name="series1" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                </div>
+	              
+	                 <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="">Exercício 3</label>
+	                        <input type="text" class="form-control" placeholder="Descrição:"
+	                               autofocus="autofocus" name="descricao2" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Carga:</label>
+	                        <input type="text" class="form-control" 
+	                               name="carga2" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Repetições:</label>
+	                        <input type="text" class="form-control" 
+	                               data-mask-reverse="true" name="repeticoes2" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Séries:</label>
+	                        <input type="text" class="form-control"  
+	                               data-mask-reverse="true" name="series2" />
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                </div>
+
+	                   <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="">Exercício 4</label>
+	                        <input type="text" class="form-control"  placeholder="Descrição:"
+	                               autofocus="autofocus" name="descricao3"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Carga:</label>
+	                        <input type="text" class="form-control" 
+	                              name="carga3"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Repetições:</label>
+	                        <input type="text" class="form-control"   name="repeticoes3"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Séries:</label>
+	                        <input type="text" class="form-control"   name="series3"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                </div>
+
+	        
+	                <div class="form-row">
+	                    <div class="form-group col-md-10" align="center">
+	                        <label for="observacoes">Observações:</label>
+	                        <textarea id="observacoes" name="observacoes"  class="form-control" form="cadastrar" rows="5" ></textarea>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+
+	                </div>
+	                
+	                <div class="form-row">
+	                    <div class="form-group col-md-10" align="center">
+	                <div align="center">
+	                <input type="hidden" id="id" name="id" value=""/>
+	                <button type="submit" class="btn btn-primary btn-md">Salvar</button>
+	                </div></div></div>
+	            
+	               
+	               
+	            </form>
+	        </div>
+	    </section>	
+	 </div>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>relatório</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" th:href="@{/image/imagem3.png}" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+  
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-inverse navbar navbar-dark bg-light fixed-top"
+		>
+			<div class="container-fluid" >
+				<div class="navbar-header" style="width: 100%; height:90px;">
+					
+					<div class="row">
+						<div class="col-2"   >
+			
+			<!--    	<a class="navbar-brand" href="/">
+					<img src="../static/images/imagem3.png" 
+					width="100" th:src="@{images/imagem3.png}"/> 
+						</a> 	
+						<a  href="/"><img src="../static/images/imagem3.png" 
+						width="100" th:src="@{images/imagem3.png}"/>
+						</a>-->
+						
+						</div>
+						<div align="center" class="col-9" style="vertical-align: -60px;
+						"><h2 class="mt-4" style="font-weight: bolder;">App Diário de Treinamento</h2>
+
+					</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<br><br>
+	<div class="layout-main mt-3">	
+	
+		<aside >
+			<nav class="sidebar sidebar-open" style="width: 80%; height:100%;">
+				<ul class="nav nav-pills ">
+					<li class="nav-item" id="redhome"><a class="nav-link " href="#" > <i
+							class="oi oi-home"></i> <span>Home</span>
+					</a></li>
+				</ul>
+
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active" >Sessão de Treinamento</span></li>
+					<li class="nav-item" id="redcadastro"><a class="nav-link"
+						href="#"> <i class="oi oi-plus"></i> <span>Cadastrar</span>
+					</a></li>
+					<li class="nav-item" id="redlista"><a class="nav-link"
+						href="#"> <i class="oi oi-spreadsheet"></i>
+							<span>Consultar </span>
+					</a></li>
+				</ul>
+
+			</nav>
+		</aside>
+	
+						
+							
+	<section class="layout-content" style="margin-left: -60px;">
+	
+		<nav class="navbar navbar-expand-md bg-light ">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active mt-2 ml-3">
+						<i class="oi oi-caret-right"></i>
+						<span style="font-weight: bold; font-style: italic;">Relatório da Sessão</span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+	   
+	        <div class="container" >
+	            <form action="/editar" id="recadastrar">
+	             <div class="form-row">
+
+	                <div class="form-group col-md-4">
+	                  
+	
+	                        <nav class="navbar navbar-light bg-light">
+	       
+	                                       <span >Data da sessão:</span> </div>
+	                              <div class="form-group col-md-4">
+	                                <input class="form-control mr-sm-2" type="date" aria-label="Search"
+	                                      th:value="${sess.dataInicial}"  th:name="dataInicial" /> </div>
+	         
+	                        </nav>
+	
+	                    </div>
+
+ <div th:each="e,iter : ${exercicios}">
+ <div class="form-row">
+
+ <input type="hidden" th:name="'id'+${iter.index}" th:value="${e.id}">
+	                    <div class="form-group col-md-6">
+	                        <label for="">Exercício&nbsp; <span th:text="${iter.index+1}"></span></label>
+	                        <input type="text" class="form-control"  
+	                    th:name="'descricao'+${iter.index}" th:value="${e.descricao}"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label >Carga:</label>
+	                        <input  class="form-control" 
+	                          th:name="'carga'+${iter.index}" th:value="${e.carga}"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Repetições:</label>
+	                        <input type="text" class="form-control"
+	                      th:name="'repeticoes'+${iter.index}" th:value="${e.repeticoes}"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                    <div class="form-group col-md-2">
+	                        <label for="">Séries:</label>
+	                        <input type="text" class="form-control" 
+	                 th:name="'series'+${iter.index}" th:value="${e.series}"/>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                </div>
+	                
+</div>	                
+	                
+	                
+	        
+	                <div class="form-row mb-3" >
+	                    <div class="form-group col-md-10 " align="center">
+	                        <label for="observacoes">Observações:</label>
+	                        <textarea th:text="${sess.observacoes}" th:name="observacoes" class="form-control" form="recadastrar" rows="5" ></textarea>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+			                </div>
+			                
+			        <div class="form row float-right mr-3 mb-5">    
+			        
+	                <a href="#" id="redvoltar" type="button" class="btn btn-primary btn-md mr-2">Voltar</a>
+	                   
+	         <input type="hidden" th:name="id" th:value="${sess.id}">
+	                <button class="btn btn-success btn-md mr-2" 
+	                 type="submit" >Editar</button>
+	                
+
+	  </form>
+	                
+	        <button class="btn btn-danger btn-md" 
+	       
+	        data-toggle="modal" data-target="#myModal" type="button">Excluir</button>
+	        
+	 </div>
+	
+	       
+	                 </div>
+	    
+	        </div>
+	        </div>
+	           <div th:replace="modal :: modal"></div>
+	        </div>
+	       
+	    </section>	
+	
+	</div>
+		
+
+
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	
+
+	
+	$('#ok_confirm').click(function(){
+		document.location.href = '/deletar/'+$(this).val();
+	});
+	    
+	$('#redcadastro').click(function(){
+		document.location.href = '/cadastrar';
+	});
+	$('#redlista').click(function(){
+		document.location.href = '/sessoes';
+	});
+	$('#redhome').click(function(){
+		document.location.href = '/';
+	});
+	$('#redvoltar').click(function(){
+		document.location.href = '/sessoes';
+	});
+	
+	</script>
+</body>
+</html>
